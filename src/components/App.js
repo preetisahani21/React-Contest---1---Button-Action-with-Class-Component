@@ -1,20 +1,26 @@
-import React, {Component, useState} from "react";
-import '../styles/App.css';
+import React, { Component, useState } from "react";
+import "../styles/App.css";
 
-class App extends Component {
-    constructor(props) {
-		super(props);
-	};
-
-    render() {
-    	return(
-    		<div id="main">
-				{ /* Do not remove this main div!! */ }
-    		</div>
-    	);
-    }
+function App() {
+  const [click, setclick] = React.useState(false);
+  let isClicked = () => {
+    let val = click;
+    val = true;
+    setclick(val);
+  };
+  return (
+    <div id="main">
+      <button id="click" onClick={() => isClicked()}>
+        Click
+      </button>
+      {click && (
+        <pre id="para">
+          Hello, I've learnt to use the full-stack evaluation tool. This makes
+          me so happy
+        </pre>
+      )}
+    </div>
+  );
 }
 
-
 export default App;
-
